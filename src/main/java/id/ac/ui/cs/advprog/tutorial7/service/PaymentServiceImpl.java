@@ -48,10 +48,10 @@ public class PaymentServiceImpl implements PaymentService{
         String errorMsg = vaHelper.validatePayment(va, vaAmount, payAmount);
         if(!errorMsg.equals("")) return new PaymentResponse(0, errorMsg);
 
-        boolean paymentSuccessfull = bankApi.pay(payAmount);
-        vaHelper.logVAPayment(va, paymentSuccessfull);
-        if(!paymentSuccessfull) return new PaymentResponse(0, "Payment unsuccessfull, please try again");
-        else return new PaymentResponse(1, "Payment successfull");
+        boolean paymentSuccessful = bankApi.pay(payAmount);
+        vaHelper.logVAPayment(va, paymentSuccessful);
+        if(!paymentSuccessful) return new PaymentResponse(0, "Payment unsuccessful, please try again");
+        else return new PaymentResponse(1, "Payment successful");
 
         
 
